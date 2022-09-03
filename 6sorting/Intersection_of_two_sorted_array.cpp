@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+void disp(int arr[],int size){
+    for(int i=0;i<size;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+void inter(int arr1[], int arr2[], int size1, int size2){
+    
+    for(int i=0;i<size1;i++){
+        if(i>0 && arr1[i-1]==arr1[i])
+            continue;
+        
+        for(int j=0;j<size2;j++){
+            if(arr1[i] == arr2[j]){
+                cout<<arr1[i]<<" ";
+                break;
+            }
+        }        
+    }
+}
+
+int main(){
+
+    int m,n;
+    cout<<"Enter no of elements in array 1:"<<endl;
+    cin>>m;
+    cout<<"Enter no of elements in array 2:"<<endl;
+    cin>>n;
+    int arr1[m];
+    int arr2[n];
+
+    cout<<"Enter elements of array 1 in sorted order \n";
+    for(int i=0;i<m;i++){
+        cin>>arr1[i];
+    }
+
+    cout<<"Enter elements of array 2 in sorted order \n";
+    for(int i=0;i<n;i++){
+        cin>>arr2[i];
+    }
+
+    cout<<"Your array 1\n";
+    disp(arr1,m);
+    
+    cout<<"Your array 2\n";
+    disp(arr2,n);  
+
+    cout<<"Intersecting elements are : \n";
+    inter(arr1,arr2,m,n);  
+    
+    return 0;
+}
